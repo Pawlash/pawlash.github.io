@@ -1,6 +1,10 @@
 @import "tailwindcss";
-
 @theme {
+	/* fonts */
 	--font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif,
 		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+	--font-mono: var(--font-jetbrains-mono), ui-monospace, SFMono-Regular;
+	/* theme */
+	--color-background: oklch(0.1 0 0.9);
+	--color-foreground: oklch(0.99 0 0);
 }
