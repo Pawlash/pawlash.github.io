@@ -1,37 +1,59 @@
-import Link from "next/link";
-
+import { Geist } from "next/font/google";
+import Header from "~/components/Header";
+const geist = Geist({
+	subsets: ["latin"],
+	variable: "--font-geist",
+	weight: ["400"]
+});
 export default function HomePage() {
 	return (
-		<main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c] text-white">
-			<div className="container flex flex-col items-center justify-center gap-12 px-4 py-16">
-				<h1 className="font-extrabold text-5xl text-white tracking-tight sm:text-[5rem]">
-					Create <span className="text-[hsl(280,100%,70%)]">T3</span> App
-				</h1>
-				<div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-8">
-					<Link
-						className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 text-white hover:bg-white/20"
-						href="https://create.t3.gg/en/usage/first-steps"
-						target="_blank"
-					>
-						<h3 className="font-bold text-2xl">First Steps →</h3>
-						<div className="text-lg">
-							Just the basics - Everything you need to know to set up your
-							database and authentication.
-						</div>
-					</Link>
-					<Link
-						className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 text-white hover:bg-white/20"
-						href="https://create.t3.gg/en/introduction"
-						target="_blank"
-					>
-						<h3 className="font-bold text-2xl">Documentation →</h3>
-						<div className="text-lg">
-							Learn more about Create T3 App, the libraries it uses, and how to
-							deploy it.
-						</div>
-					</Link>
+		<section className={`${geist.className}`}>
+			<h1 className="text-3xl font-bold mb-4">Hi there!👋</h1>
+			<p className="mb-6">
+I'm a software engineer with hands-on experience across the full stack. I've touched a bit of everything – from frontend to backend, databases to DevOps – and I enjoy matching the best technologies to each project. When it comes to anything computer-related, I know my stuff inside out. I love learning new tools and taking on challenges head-on.			</p>
+			<div className="mb-8">
+				<h2 className="text-2xl font-semibold mb-2">Skills</h2>
+				<details>
+					<summary className="font-medium cursor-pointer">Frontend</summary>
+					<ul className="ml-4 list-disc list-inside">
+						<li>HTML</li>
+						<li>CSS</li>
+						<li>JavaScript</li>
+						<li>TypeScript</li>
+						<li>Svelte</li>
+						<li>React</li>
+					</ul>
+				</details>
+				<details>
+					<summary className="font-medium cursor-pointer">Backend</summary>
+					<ul className="ml-4 list-disc list-inside">
+						<li>Node.js</li>
+						<li>Python</li>
+						<li>REST APIs</li>
+					</ul>
+				</details>
+				<details>
+					<summary className="font-medium cursor-pointer">DevOps / Tools</summary>
+					<ul className="ml-4 list-disc list-inside">
+						<li>Docker</li>
+						<li>Git</li>
+						<li>Linux</li>
+					</ul>
+				</details>
+				<details>
+					<summary className="font-medium cursor-pointer">Computer Skills / Other Tech</summary>
+					<ul className="ml-4 list-disc list-inside">
+						<li>Hardware troubleshooting</li>
+						<li>System optimization</li>
+						<li>Networking</li>
+						<li>Scripting & automation</li>
+						<li>Virtualization</li>
+						<li>Performance tuning</li>
+						<li>Security basics</li>
+						<li>Linux/Windows administration</li>
+					</ul>
+				</details>
 				</div>
-			</div>
-		</main>
+		</section>
 	);
 }
