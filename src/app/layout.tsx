@@ -11,21 +11,18 @@ export const metadata: Metadata = {
 const jetBrainsMono = JetBrains_Mono({
 	subsets: ["latin"],
 	variable: "--font-jetbrains-mono",
-	weight: ["400"]
+	weight: ["400"],
 });
-
 
 export default function RootLayout({
 	children,
 }: Readonly<{ children: React.ReactNode }>) {
 	return (
 		<html lang="en" className={jetBrainsMono.className}>
-			<body className="bg-background text-foreground max-w-6xl mx-auto px-2 pt-16">
+			<body className="mx-auto max-w-6xl bg-background px-2 pt-16 text-foreground">
 				<Header />
 				<div className="mx-2 md:mx-0">
-					<main
-					className="flex flex-col p-4 max-w-6xl border border-foreground rounded-xl"
-					>
+					<main className="flex max-w-6xl flex-col rounded-xl border border-foreground p-4">
 						{children}
 					</main>
 				</div>
