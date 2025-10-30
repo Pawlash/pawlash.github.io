@@ -27,6 +27,7 @@ export default function HomePage() {
 					<li>TypeScript</li>
 					<li>Svelte</li>
 					<li>React</li>
+					<li>Next.js</li>
 				</ul>
 			</details>
 			<details>
@@ -34,6 +35,7 @@ export default function HomePage() {
 				<ul className="ml-4 list-inside list-disc">
 					<li>Node.js</li>
 					<li>Python</li>
+					<li>Golang</li>
 					<li>REST APIs</li>
 				</ul>
 			</details>
