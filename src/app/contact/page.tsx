@@ -1,97 +1,72 @@
 import { Mail } from "lucide-react";
-import { Geist } from "next/font/google";
 import Image from "next/image";
-import Link from "next/link";
-const geist = Geist({
-	subsets: ["latin"],
-	variable: "--font-geist",
-	weight: ["400"],
-});
+
+const rowClass =
+	"border-border bg-card hover:border-accent flex items-center gap-4 rounded-xl border p-4 transition-colors";
+
+const socials = [
+	{ href: "https://youtube.com/@pawlash", icon: "youtube", label: "YouTube" },
+	{ href: "https://tiktok.com/@pawlash", icon: "tiktok", label: "TikTok" },
+];
+
 export default function ContactPage() {
 	return (
-		<section className={`${geist.className}`}>
-			<h1 className="mb-4 font-bold text-3xl">Contact Me</h1>
-			<p className="mb-6">
+		<section>
+			<h1 className="mb-4 text-3xl font-bold tracking-tight">Contact</h1>
+			<p className="text-muted mb-8 text-lg">
 				If you'd like to get in touch, feel free to reach out via email or
 				connect with me on social media.
 			</p>
 
-			<div className="space-y-4">
-				<div className="flex items-center gap-3">
-					<Mail className="h-6 w-6" />
+			<div className="grid gap-3 sm:grid-cols-2">
+				<a href="mailto:pawlash333@gmail.com" className={rowClass}>
+					<Mail className="h-6 w-6 shrink-0" />
 					<div>
-						<h2 className="font-semibold text-2xl">Email</h2>
-						<p>pawlash333@gmail.com</p>
+						<h2 className="font-semibold">Email</h2>
+						<p className="text-muted text-sm">pawlash333@gmail.com</p>
 					</div>
-				</div>
-
-				<div className="flex items-center gap-3">
-					<Image src="/icons/github.svg" width={24} height={24} alt="GitHub" />
+				</a>
+				<a
+					href="https://github.com/pawlash"
+					target="_blank"
+					rel="noopener noreferrer"
+					className={rowClass}
+				>
+					<Image src="/icons/github.svg" width={24} height={24} alt="" />
 					<div>
-						<h2 className="font-semibold text-2xl">GitHub</h2>
-						<Link
-							href="https://github.com/pawlash"
+						<h2 className="font-semibold">GitHub</h2>
+						<p className="text-muted text-sm">github.com/pawlash</p>
+					</div>
+				</a>
+			</div>
+
+			<h2 className="mt-10 mb-4 text-xl font-semibold">Social Media</h2>
+			<ul className="grid gap-3 sm:grid-cols-3">
+				{socials.map(({ href, icon, label }) => (
+					<li key={label}>
+						<a
+							href={href}
 							target="_blank"
 							rel="noopener noreferrer"
-							className="hover:underline"
+							className={rowClass}
 						>
-							github.com/pawlash
-						</Link>
-					</div>
-				</div>
-
-				<div>
-					<h2 className="mb-2 font-semibold text-2xl">Social Media</h2>
-					<ul className="space-y-2">
-						<li className="flex items-center gap-3">
-							<Image
-								src="/icons/youtube.svg"
-								width={24}
-								height={24}
-								alt="YouTube"
-							/>
-							<Link
-								href="https://youtube.com/@pawlash"
-								target="_blank"
-								rel="noopener noreferrer"
-								className="hover:underline"
-							>
-								YouTube
-							</Link>
-						</li>
-						<li className="flex items-center gap-3">
-							<Image
-								src="/icons/tiktok.svg"
-								width={24}
-								height={24}
-								alt="TikTok"
-							/>
-							<Link
-								href="https://tiktok.com/@pawlash"
-								target="_blank"
-								rel="noopener noreferrer"
-								className="hover:underline"
-							>
-								TikTok
-							</Link>
-						</li>
-						<li>
-							<details>
-								<summary className="flex cursor-pointer items-center gap-3 hover:underline">
-									<Image
-										src="/icons/discord.svg"
-										width={24}
-										height={24}
-										alt="Discord"
-									/>
-									Discord
-								</summary>
-								<span className="ml-2 text-gray-400">pawlash</span>
-							</details>
-						</li>
-					</ul>
-				</div>
-			</div>
+							<Image src={`/icons/${icon}.svg`} width={24} height={24} alt="" />
+							{label}
+						</a>
+					</li>
+				))}
+				<li>
+					<details className="border-border bg-card rounded-xl border p-4">
+						<summary className="flex cursor-pointer list-none items-center gap-4">
+							<Image src="/icons/discord.svg" width={24} height={24} alt="" />
+							Discord
+						</summary>
+						<span className="text-muted mt-2 block font-mono text-sm">
+							pawlash
+						</span>
+					</details>
+				</li>
+			</ul>
 		</section>
 	);
 }

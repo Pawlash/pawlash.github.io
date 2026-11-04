@@ -1,31 +1,37 @@
 import "~/styles/globals.css";
 import type { Metadata } from "next";
-import { JetBrains_Mono } from "next/font/google";
+import { JetBrains_Mono, Schibsted_Grotesk } from "next/font/google";
+import { ViewTransition } from "react";
 import Header from "~/components/Header";
 
 export const metadata: Metadata = {
 	title: "Pawlash",
-	description: "My personal website",
+	description: "Paweł Jurkiewicz, full-stack software engineer.",
 	icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
+const schibstedGrotesk = Schibsted_Grotesk({
+	subsets: ["latin", "latin-ext"],
+	variable: "--font-schibsted-grotesk",
+});
 const jetBrainsMono = JetBrains_Mono({
-	subsets: ["latin"],
+	subsets: ["latin", "latin-ext"],
 	variable: "--font-jetbrains-mono",
-	weight: ["400"],
 });
 
 export default function RootLayout({
 	children,
 }: Readonly<{ children: React.ReactNode }>) {
 	return (
-		<html lang="en" className={jetBrainsMono.className}>
-			<body className="mx-auto max-w-6xl bg-background px-2 pt-16 text-foreground">
+		<html
+			lang="en"
+			className={`${schibstedGrotesk.variable} ${jetBrainsMono.variable}`}
+		>
+			<body className="bg-background text-foreground mx-auto max-w-3xl px-4 pt-10 pb-16 font-sans antialiased md:pt-16">
 				<Header />
-				<div className="mx-2 md:mx-0">
-					<main className="flex max-w-6xl flex-col rounded-xl border border-foreground p-4">
-						{children}
-					</main>
-				</div>
+				{/* Next's <Link> navigations run as transitions, so this animates page changes (see globals.css). */}
+				<ViewTransition name="page">
+					<main className="mt-10">{children}</main>
+				</ViewTransition>
 			</body>
 		</html>
 	);
