@@ -10,10 +10,7 @@ minimumReleaseAgeExclude:
   - "@biomejs/cli-linux-x64@2.6.5"
   - "@biomejs/cli-win32-arm64@2.6.5"
   - "@biomejs/cli-win32-x64@2.6.5"
-  - framer-motion@14.9.1
   - lucide-react@1.68.0
-  - motion-dom@14.9.1
-  - motion@14.9.1
 onlyBuiltDependencies:
   - "@biomejs/biome"
   - "@tailwindcss/oxide"

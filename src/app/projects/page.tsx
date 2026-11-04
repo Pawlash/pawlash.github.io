@@ -16,7 +16,7 @@ const projects: Project[] = [
 		badge: "Not published yet",
 		description:
 			"Free driving theory tests covering every Polish licence category: AM, A1, A2, A, B, B1, C1, C, D1, D and T, plus the UDT forklift exam. The mock exam works like the real one, with 32 questions, the same timers and the same scoring, and there's a learning mode with progress tracking. Available in Polish, English, German and Ukrainian (driving questions come straight from the official government database). It isn't public yet, but I may launch it in the future.",
-		stack: ["SvelteKit", "Svelte 5", "Tailwind CSS", "Paraglide"],
+		stack: ["SvelteKit", "Svelte 5", "Paraglide"],
 		screenshots: [
 			{
 				src: "/projects/driving-tests/categories.avif",
